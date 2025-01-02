@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gachon.Stethoscope.mapper.stethoscopeMapper">
+
+    <select id="getDataList" resultType="com.gachon.Stethoscope.dto.stethoscopeDto">
+        select * from patientData;
+    </select>
+
+    <update id="truncate" >
+        TRUNCATE TABLE patientData;
+    </update>
+
+
+    <insert id="insertData" parameterType="com.gachon.Stethoscope.dto.stethoscopeDto">
+        INSERT INTO patientData
+            (name, birth, patient_sex, patient_number)
+        VALUES  (#{name}, #{birth}, #{patient_sex}, #{patient_number});
+    </insert>
+</mapper>
